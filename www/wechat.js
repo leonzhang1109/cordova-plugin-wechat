@@ -1,6 +1,6 @@
 var exec = require('cordova/exec');
 
-module.exports = {
+exports = {
     Scene: {
         SESSION:  0, // 聊天界面
         TIMELINE: 1, // 朋友圈
