@@ -73,3 +73,7 @@ exports = {
         return cordova.exec(onSuccess, onError, "Wechat", "sendAuthRequest", [scope, state]);
     }
 };
+
+exports.share = function (message, onSuccess, onError) {
+    cordova.exec(onSuccess, onError, "Wechat", "share", [message]);
+};
