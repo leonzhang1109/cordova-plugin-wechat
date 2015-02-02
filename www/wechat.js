@@ -18,7 +18,7 @@ exports = {
     },
 
     isInstalled: function (onSuccess, onError) {
-        exec(onSuccess, onError, "Wechat", "isWXAppInstalled");
+        cordova.exec(onSuccess, onError, "Wechat", "isWXAppInstalled");
     },
 
     /**
@@ -46,7 +46,7 @@ exports = {
      * </code>
      */
     share: function (message, onSuccess, onError) {
-        exec(onSuccess, onError, "Wechat", "share", [message]);
+        cordova.exec(onSuccess, onError, "Wechat", "share", [message]);
     },
 
     /**
@@ -61,15 +61,15 @@ exports = {
         if (typeof scope == "function") {
             // Wechat.auth(function () { alert("Success"); });
             // Wechat.auth(function () { alert("Success"); }, function (error) { alert(error); });
-            return exec(scope, state, "Wechat", "sendAuthRequest");
+            return cordova.exec(scope, state, "Wechat", "sendAuthRequest");
         }
 
         if (typeof state == "function") {
             // Wechat.auth("snsapi_userinfo", function () { alert("Success"); });
             // Wechat.auth("snsapi_userinfo", function () { alert("Success"); }, function (error) { alert(error); });
-            return exec(state, onSuccess, "Wechat", "sendAuthRequest", [scope]);
+            return cordova.exec(state, onSuccess, "Wechat", "sendAuthRequest", [scope]);
         }
 
-        return exec(onSuccess, onError, "Wechat", "sendAuthRequest", [scope, state]);
+        return cordova.exec(onSuccess, onError, "Wechat", "sendAuthRequest", [scope, state]);
     }
 };
